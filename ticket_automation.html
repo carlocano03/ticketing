@@ -48,6 +48,13 @@
     #table_support td:nth-child(8) {
         text-align: center;
     }
+    .ai-support .input-group-text {
+        background: #FFEFBA;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: orange;
+        font-weight:600;
+    }
   </style>
 </head>
 
@@ -230,11 +237,6 @@
               <i class="bi bi-circle"></i><span>Ticket Automation</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>SLA Monitoring</span>
-            </a>
-          </li>
         </ul>
       </li><!-- End Helpdesk Nav -->
 
@@ -284,7 +286,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Ticket Automation</h1>
+      <h1>Ticket Automation & SLA Monitoring</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -301,7 +303,48 @@
             <button type="button" class="btn btn-success btn-sm" title="Add account" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="bi bi-pencil-square me-2"></i>Create Ticket
             </button>
-            <div class="table-responsive mt-2">
+            <button type="button" class="btn btn-secondary btn-sm" title="Export data">
+                <i class="bi bi-download me-2"></i>Export Data
+            </button>
+            <hr>
+            <div class="row g-2 ai-support">
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Filter By Department</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                          <option selected>Select Department</option>
+                          <option value="1">IT Department</option>
+                          <option value="2">HR Department</option>
+                          <option value="3">Finance</option>
+                          <option value="3">Business Development</option>
+                          <option value="3">Legal</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Filter By Section</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                          <option selected>Select Section</option>
+                          <option value="1">Section 1</option>
+                          <option value="2">Section 2</option>
+                          <option value="3">Section 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Filter By Concern</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                          <option selected>Select Concern</option>
+                          <option value="1">Concern 1</option>
+                          <option value="2">Concern 2</option>
+                          <option value="3">Concern 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
                 <table class="table table-bordered table-hover table-striped" id="table_support" width="100%">
                     <thead>
                         <tr>

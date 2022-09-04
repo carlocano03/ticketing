@@ -48,7 +48,7 @@
     #table_support td:nth-child(7) {
         font-size: 12px;
     }
-    #table_support td:nth-child(1), #table_support td:nth-child(8) {
+    #table_support td:nth-child(1), #table_support td:nth-child(8), #table_support td:nth-child(9) {
         text-align: center;
     }
   </style>
@@ -233,11 +233,6 @@
               <i class="bi bi-circle"></i><span>Ticket Automation</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>SLA Monitoring</span>
-            </a>
-          </li>
         </ul>
       </li><!-- End Helpdesk Nav -->
 
@@ -305,14 +300,15 @@
                 <table class="table table-bordered table-hover table-striped" id="table_support" width="100%">
                     <thead>
                         <tr>
-                            <th class="text-center">Action</th>
+                            <th class="text-center" width="10%">Action</th>
+                            <th>Ticket No</th>
                             <th>Concern</th>
                             <th>Details</th>
                             <th>Requestor</th>
                             <th width="12%">Rendering Staff</th>
                             <th>Remarks</th>
-                            <th>Activity</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Activity</th>
+                            <th class="text-center" width="10%">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -321,6 +317,7 @@
                                 <button class="btn btn-danger btn-sm" title="Delete"><i class="bi bi-trash-fill"></i></button>
                                 <button class="btn btn-secondary btn-sm" title="Print Service Report"><i class="bi bi-printer-fill"></i></button>
                             </td>
+                            <td>TN-12345678</td>
                             <td>Hardware-System Unit</td>
                             <td>No display</td>
                             <td>Carlo Cano - ITD</td>
@@ -345,6 +342,7 @@
                                 <span class="badge bg-success">Accomplished:</span>
                                 <div class="mt-2">2022-09-04 10:33:25</div>
                             </td>
+                            <td>TN-12345678</td>
                             <td>Hardware-System Unit</td>
                             <td>No display</td>
                             <td>Carlo Cano - ITD</td>
@@ -364,8 +362,9 @@
 
                         <tr>
                             <td>
-                                <button class="btn btn-success btn-sm" title="Delete">Done</button>
+                                <button class="btn btn-success btn-sm" title="Done"><i class="bi bi-check2-circle me-1"></i>Done</button>
                             </td>
+                            <td>TN-12345678</td>
                             <td>Hardware-System Unit</td>
                             <td>No display</td>
                             <td>Carlo Cano - ITD</td>
@@ -424,7 +423,7 @@
     $(document).ready(function(){
         $('#table_support').DataTable({
             "fnRowCallback": function(nRow, aData, iDisplayIndex,asd) {
-              if (aData[7] == 'Pending'){
+              if (aData[8] == 'Pending'){
                   $('td', nRow).css('background-color', 'rgba(255, 214, 214, 0.59)');
               }else{
                   $('td', nRow).css('background-color', 'rgba(209, 253, 208, 0.59)');
