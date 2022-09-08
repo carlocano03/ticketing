@@ -439,11 +439,11 @@ h6 {
     width: 280px;
   }
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .logo-main img {
     width: 50px;
   }
-}
+} */
 
 .header {
   transition: all 0.5s;
