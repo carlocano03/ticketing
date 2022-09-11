@@ -14,7 +14,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,25 +30,65 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
   <style>
-    table thead {
-        text-transform: uppercase;
-        background: #FF512F;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        color: #fff;
-        font-size: 14px;
+    .media-chat {
+        padding-right: 64px;
+        margin-bottom: 0;
     }
-    table th, td {
-        padding: 3px 5px !important;
+
+    .media {
+        padding: 16px 12px;
+        -webkit-transition: background-color .2s linear;
+        transition: background-color .2s linear;
     }
-    table td {
-        font-size: 14px;
-        vertical-align: middle;
+
+    .media .avatar {
+        flex-shrink: 0;
     }
-    #table_account td:nth-child(1), #table_account td:nth-child(7) {
+
+    .avatar {
+        position: relative;
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
         text-align: center;
+        border-radius: 100%;
+        background-color: #f5f6f7;
+        color: #8b95a5;
+        text-transform: uppercase;
+    }
+
+    .media-chat .media-body {
+        -webkit-box-flex: initial;
+        flex: initial;
+        display: table;
+        margin-left: 50px;
+        margin-top: -40px;
+    }
+
+    .media-body {
+        min-width: 0;
+    }
+
+    .media-chat .media-body p {
+        position: relative;
+        padding: 6px 8px;
+        margin: 4px 0;
+        background-color: #f5f6f7;
+        border-radius: 3px;
+        font-weight: 100;
+        color:#9b9b9b;
+    }
+
+    .media>* {
+        margin: 0 8px;
+    }
+
+    .media-chat .media-body p.meta {
+        background-color: transparent !important;
+        padding: 0;
+        opacity: .8;
     }
   </style>
 </head>
@@ -65,7 +107,6 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
 
         <li class="nav-item dropdown">
 
@@ -231,7 +272,7 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Helpdesk Nav -->
+      </li><!-- End Heldesk Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#analytics-nav" data-bs-toggle="collapse" href="#">
@@ -258,10 +299,10 @@
           <i class="bi bi-person-lines-fill"></i>
           <span>Ticket Monitoring</span>
         </a>
-      </li><!-- End ticketing Page Nav -->
+      </li><!-- End Ticketing Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="account_management.html">
+        <a class="nav-link collapsed" href="account_management.html">
           <i class="bi bi-person"></i>
           <span>Account Management</span>
         </a>
@@ -278,7 +319,7 @@
             </a>
           </li>
           <li>
-            <a href="user">
+            <a href="user_permission.html">
               <i class="bi bi-circle"></i><span>Manage User Permissions </span>
             </a>
           </li>
@@ -300,7 +341,7 @@
       </li><!-- End backup db Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="forum_channel.html">
+        <a class="nav-link active" href="forum_channel.html">
           <i class="bi bi-chat-right-text-fill"></i>
           <span>Forum Channel</span>
         </a>
@@ -313,59 +354,99 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Account Management</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Account Management</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+        <h1>Forum Channel</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Forum Channel</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
 
-    <section class="section profile">
+    <section class="section dashboard">
+      <div class="row">
 
-      <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">User's Account</h5>
-            <button type="button" class="btn btn-success btn-sm" title="Add account" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="bi bi-person-plus-fill me-2"></i>Add Account
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm" title="Export account">
-                <i class="bi bi-download me-2"></i>Export Data
-            </button>
-            <div class="table-responsive mt-2">
-                <table class="table table-bordered table-hover table-striped" id="table_account" width="100%">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Action</th>
-                            <th>Username</th>
-                            <th>Fullname</th>
-                            <th>Department</th>
-                            <th>User Level</th>
-                            <th>Date Created</th>
-                            <th class="text-center">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <button class="btn btn-danger btn-sm" title="Delete Account"><i class="bi bi-trash-fill"></i></button>
-                                <button class="btn btn-secondary btn-sm" title="Update Account"><i class="bi bi-pencil-square"></i></button>
-                            </td>
-                            <td>user1234</td>
-                            <td>Sample User</td>
-                            <td>ITD</td>
-                            <td>Administrator</td>
-                            <td>2022-09-04 11:06:30</td>
-                            <td><span class="badge bg-success">Active</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- Left side columns -->
+        <div class="col-lg-8">
+          <div class="row">
+
+            <!-- List Tickets -->
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-chat-right-text-fill me-2"></i>Forum</h5>
+                    <hr class="mt-0">
+
+                    <div class="media media-chat">
+                        <img class="avatar" src="assets/img/faq_man.png" alt="">
+                        <div class="media-body">
+                            <p>Hi</p>
+                            <p>How are you ...???</p>
+                            <p>What are you doing tomorrow?<br> Can we come up a bar?</p>
+                            <p class="meta"><time datetime="2018">23:58</time></p>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="input-group">
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <span class="input-group-text" style="font-size: 25px; background:transparent;" title="Send"><i class="bi bi-send text-warning"></i></span>
+                    </div>
+                </div>
+              </div>
+
+              
+            </div><!-- End list tickets -->
+
+          </div>
+        </div><!-- End Left side columns -->
+
+        <!-- Right side columns -->
+        <div class="col-lg-4">
+
+          <!-- Hot topics -->
+          <div class="card info-card backlogs-card">
+            <div class="card-body">
+              <h5 class="card-title">Hot Topics</h5>
+              <hr>
+              <div class="topic">
+                <h5># Operations</h5>
+              </div>
+              <hr>
+              <div class="topic">
+                <h5># Store Openings</h5>
+              </div>
+              <hr>
+              <div class="topic-1">
+                <h5># Execom</h5>
+              </div>
+              <hr>
             </div>
-        </div>
+          </div><!-- end Hot topics -->
+
+          <!-- Available channels -->
+          <div class="card info-card backlogs-card">
+            <div class="card-body">
+              <h5 class="card-title">Available Channels</h5>
+              <hr>
+              <div class="topic">
+                <h5><i class="bi bi-chat-right-text-fill me-2"></i>General</h5>
+              </div>
+              <hr>
+              <div class="topic">
+                <h5><i class="bi bi-chat-right-text-fill me-2"></i>Human Resources</h5>
+              </div>
+              <hr>
+              <div class="topic-1">
+                <h5><i class="bi bi-chat-right-text-fill me-2"></i>Information Technology</h5>
+              </div>
+              <hr>
+            </div>
+          </div><!-- end Available channels -->
+
+        </div><!-- End Right side columns -->
 
       </div>
-    
     </section>
 
   </main><!-- End #main -->
@@ -377,71 +458,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
-
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <h5><i class="bi bi-person-plus-fill me-2"></i>Account Management</h5>
-          <hr class="mt-0">
-          <form class="addAccount" method="POST">
-            <div class="mb-3">
-                <label for="fullname" class="form-label">Fullname</label>
-                <input type="text" class="form-control form-control-sm" id="fullname" name="fullname">
-            </div>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control form-control-sm" id="username" name="username">
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="password" name="password">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="confirm_password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control form-control-sm" id="confirm_password" name="confirm_password">
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="email_add" class="form-label">Email Address</label>
-                <input type="email" class="form-control form-control-sm" id="email_add" name="email_add">
-            </div>
-            <div class="mb-3">
-                <label for="department" class="form-label">Department</label>
-                <select class="form-select form-select-sm text-uppercase" id="department" name="department">
-                    <option selected>Select Department</option>
-                    <option value="1">Department 1</option>
-                    <option value="2">Department 2</option>
-                    <option value="3">Department 3</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="user_level" class="form-label">User Level</label>
-                <select class="form-select form-select-sm text-uppercase" id="user_level" name="user_level">
-                    <option selected>Select User Level</option>
-                    <option value="1">Administrator</option>
-                    <option value="2">User</option>
-                </select>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary text-white" data-bs-dismiss="modal"><i class="bi bi-x-square me-2"></i>Close</button>
-          <button type="button" class="btn btn-outline-warning text-white"><i class="bi bi-save me-2"></i>Save Account</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
@@ -450,18 +468,16 @@
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
   <script src="assets/vendor/quill/quill.min.js"></script>
-  <!-- <script src="assets/vendor/simple-datatables/simple-datatables.js"></script> -->
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-
+  
   <script>
     $(document).ready(function(){
-        $('#table_account').DataTable({
+        $('#table_ticket').DataTable({
             language: { search: '', searchPlaceholder: "Search Here..." },
             "ordering":false,
         });

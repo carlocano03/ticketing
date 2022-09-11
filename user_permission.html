@@ -14,7 +14,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,10 +47,8 @@
         font-size: 14px;
         vertical-align: middle;
     }
-    #table_account td:nth-child(1), #table_account td:nth-child(7) {
-        text-align: center;
-    }
   </style>
+
 </head>
 
 <body>
@@ -65,7 +65,6 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
 
         <li class="nav-item dropdown">
 
@@ -231,7 +230,7 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Helpdesk Nav -->
+      </li><!-- End Heldesk Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#analytics-nav" data-bs-toggle="collapse" href="#">
@@ -258,27 +257,27 @@
           <i class="bi bi-person-lines-fill"></i>
           <span>Ticket Monitoring</span>
         </a>
-      </li><!-- End ticketing Page Nav -->
+      </li><!-- End Ticketing Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="account_management.html">
+        <a class="nav-link collapsed" href="account_management.html">
           <i class="bi bi-person"></i>
           <span>Account Management</span>
         </a>
       </li><!-- End account Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#settings-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link" data-bs-target="#settings-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-gear"></i><span>General Settings</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="settings-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="settings-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
             <a href="department.html">
               <i class="bi bi-circle"></i><span>Manage Department</span>
             </a>
           </li>
           <li>
-            <a href="user">
+            <a href="user_permission.html"  class="active">
               <i class="bi bi-circle"></i><span>Manage User Permissions </span>
             </a>
           </li>
@@ -313,59 +312,57 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Account Management</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Account Management</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+        <h1>General Settings</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Manage User Permissions</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
 
-    <section class="section profile">
-
-      <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">User's Account</h5>
-            <button type="button" class="btn btn-success btn-sm" title="Add account" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="bi bi-person-plus-fill me-2"></i>Add Account
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm" title="Export account">
-                <i class="bi bi-download me-2"></i>Export Data
-            </button>
-            <div class="table-responsive mt-2">
-                <table class="table table-bordered table-hover table-striped" id="table_account" width="100%">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Action</th>
-                            <th>Username</th>
-                            <th>Fullname</th>
-                            <th>Department</th>
-                            <th>User Level</th>
-                            <th>Date Created</th>
-                            <th class="text-center">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <button class="btn btn-danger btn-sm" title="Delete Account"><i class="bi bi-trash-fill"></i></button>
-                                <button class="btn btn-secondary btn-sm" title="Update Account"><i class="bi bi-pencil-square"></i></button>
-                            </td>
-                            <td>user1234</td>
-                            <td>Sample User</td>
-                            <td>ITD</td>
-                            <td>Administrator</td>
-                            <td>2022-09-04 11:06:30</td>
-                            <td><span class="badge bg-success">Active</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <section class="section dashboard">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">List of Permissions</h5>
+                <button type="button" class="btn btn-success btn-sm" title="Assign New Permissions">
+                    <i class="bi bi-plus-square me-2"></i>Assign New Permissions
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" title="Export account">
+                    <i class="bi bi-download me-2"></i>Export Data
+                </button>
+                <div class="table-responsive mt-2">
+                    <table class="table table-bordered table-hover table-striped" id="table_dept" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Action</th>
+                                <th>Username</th>
+                                <th>Permissions</th>
+                                <th>User Level</th>
+                                <th>Department</th>
+                                <th>Date Added</th>
+                                <th class="text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <button class="btn btn-danger btn-sm" title="Delete Account"><i class="bi bi-trash-fill"></i></button>
+                                    <button class="btn btn-secondary btn-sm" title="Update Account"><i class="bi bi-pencil-square"></i></button>
+                                </td>
+                                <td>user12345</td>
+                                <td>Sample Permissions</td>
+                                <td>Sample</td>
+                                <td>Sample Department</td>
+                                <td>2022-09-04 11:06:30</td>
+                                <td class="text-center"><span class="badge bg-success">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-
-      </div>
     
+          </div>
     </section>
 
   </main><!-- End #main -->
@@ -377,71 +374,48 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
-
-
-  <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <h5><i class="bi bi-person-plus-fill me-2"></i>Account Management</h5>
+          <h5><i class="bi bi-person-plus-fill me-2"></i>Management Department</h5>
           <hr class="mt-0">
           <form class="addAccount" method="POST">
             <div class="mb-3">
-                <label for="fullname" class="form-label">Fullname</label>
+                <label for="fullname" class="form-label">Division</label>
                 <input type="text" class="form-control form-control-sm" id="fullname" name="fullname">
             </div>
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
+                <label for="username" class="form-label">Department</label>
                 <input type="text" class="form-control form-control-sm" id="username" name="username">
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="password" name="password">
+                        <label for="password" class="form-label">Section</label>
+                        <input type="text" class="form-control form-control-sm" id="password" name="password">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="confirm_password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control form-control-sm" id="confirm_password" name="confirm_password">
+                        <label for="confirm_password" class="form-label">Local No.</label>
+                        <input type="text" class="form-control form-control-sm" id="confirm_password" name="confirm_password">
                     </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="email_add" class="form-label">Email Address</label>
-                <input type="email" class="form-control form-control-sm" id="email_add" name="email_add">
-            </div>
-            <div class="mb-3">
-                <label for="department" class="form-label">Department</label>
-                <select class="form-select form-select-sm text-uppercase" id="department" name="department">
-                    <option selected>Select Department</option>
-                    <option value="1">Department 1</option>
-                    <option value="2">Department 2</option>
-                    <option value="3">Department 3</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="user_level" class="form-label">User Level</label>
-                <select class="form-select form-select-sm text-uppercase" id="user_level" name="user_level">
-                    <option selected>Select User Level</option>
-                    <option value="1">Administrator</option>
-                    <option value="2">User</option>
-                </select>
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary text-white" data-bs-dismiss="modal"><i class="bi bi-x-square me-2"></i>Close</button>
-          <button type="button" class="btn btn-outline-warning text-white"><i class="bi bi-save me-2"></i>Save Account</button>
+          <button type="button" class="btn btn-outline-warning text-white"><i class="bi bi-save me-2"></i>Save Department</button>
         </div>
         </form>
       </div>
     </div>
   </div>
-  
 
   <!-- Vendor JS Files -->
   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
@@ -450,18 +424,16 @@
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
   <script src="assets/vendor/quill/quill.min.js"></script>
-  <!-- <script src="assets/vendor/simple-datatables/simple-datatables.js"></script> -->
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-
+  
   <script>
     $(document).ready(function(){
-        $('#table_account').DataTable({
+        $('#table_dept').DataTable({
             language: { search: '', searchPlaceholder: "Search Here..." },
             "ordering":false,
         });
